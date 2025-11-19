@@ -1,0 +1,9 @@
+Flask
+python-dotenv
+werkzeug
+openai
+weasyprint
+docx2txt
+python-docx
+reportlab
+Pillow
