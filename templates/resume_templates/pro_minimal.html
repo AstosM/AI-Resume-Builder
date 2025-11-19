@@ -1,0 +1,53 @@
+<div class="resume pro-minimal">
+  <header class="rm-header">
+    <div class="rm-top-left">
+      <h1 class="name">{{ form.name }}</h1>
+      <p class="title">{{ form.title }}</p>
+    </div>
+    <div class="rm-top-right">
+      <p class="contact small">{{ form.email }}{% if form.phone %} • {{ form.phone }}{% endif %}</p>
+      <p class="contact small">{{ form.location }}{% if form.linkedin %} • <a href="{{ form.linkedin }}">{{ form.linkedin }}</a>{% endif %}</p>
+    </div>
+  </header>
+
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>{{ ai.summary }}</p>
+  </section>
+
+  <section class="two-col">
+    <div class="left-col">
+      <h3>Experience</h3>
+      {% for ex in ai.experiences %}
+        <div class="job">
+          <div class="job-head">
+            <strong>{{ ex.role }}</strong><span class="muted"> — {{ ex.company }}</span>
+            <div class="dates">{{ ex.dates }}</div>
+          </div>
+          <ul>
+            {% for b in ex.bullets %}
+              <li>{{ b }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+    <aside class="right-col">
+      <h3>Skills</h3>
+      <p>{{ ai.skills_line }}</p>
+
+      {% if form.achievements %}
+      <h3>Selected Achievements</h3>
+      <ul>
+        {% for a in form.achievements.split('||') %}
+        <li>{{ a }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <h3>Education</h3>
+      <p>{{ form.education }}</p>
+    </aside>
+  </section>
+</div>
