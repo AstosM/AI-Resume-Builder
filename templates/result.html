@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resume Preview</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}">
+</head>
+<body>
+  <main>
+  <h1>Preview</h1>
+  <div class="resume-preview">
+    {{ resume_html | safe }}
+  </div>
+
+  <form method="post" action="{{ url_for('download_pdf') }}">
+    <input type="hidden" name="form_data_json" value='{{ form_data | tojson | safe }}'>
+    <input type="hidden" name="ai_json" value='{{ ai_struct | tojson | safe }}'>
+    <input type="hidden" name="template_choice" value="{{ template_choice }}">
+    <input type="hidden" name="profile_image_path" value="{{ profile_image_path or '' }}">
+    <button type="submit">Download PDF</button>
+  </form>
+
+  <form method="post" action="{{ url_for('download_docx') }}">
+    <input type="hidden" name="form_data_json" value='{{ form_data | tojson | safe }}'>
+    <input type="hidden" name="ai_json" value='{{ ai_struct | tojson | safe }}'>
+    <input type="hidden" name="profile_image_path" value="{{ profile_image_path or '' }}">
+    <button type="submit">Download Word (.docx)</button>
+  </form>
+
+  <p><a href="{{ url_for('index') }}">Create another</a></p>
+  </main>
+</body>
+</html>
