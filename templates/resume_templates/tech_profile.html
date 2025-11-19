@@ -1,0 +1,55 @@
+<div class="resume tech-profile">
+  <header class="tp-header">
+    <div class="tp-left">
+      <h1>{{ form.name }}</h1>
+      <p class="muted">{{ form.title }}</p>
+      <p class="muted small">{{ form.email }} • {{ form.linkedin }} • {{ form.location }}</p>
+    </div>
+    <div class="tp-right">
+      {% if profile_image %}
+        <img src="{{ profile_image }}" class="avatar-small">
+      {% endif %}
+      <h4>Top Skills</h4>
+      <ul class="skill-list">
+        {% for s in ai.skills_line.split(',')[:8] %}
+          <li>{{ s.strip() }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </header>
+
+  <main class="tp-main">
+    <section>
+      <h3>Summary</h3>
+      <p>{{ ai.summary }}</p>
+    </section>
+
+    <section>
+      <h3>Experience & Projects</h3>
+      {% for ex in ai.experiences %}
+        <article class="project">
+          <header><strong>{{ ex.role }}</strong> at <em>{{ ex.company }}</em> <span class="dates">{{ ex.dates }}</span></header>
+          <ul>
+            {% for b in ex.bullets %}
+              <li>{{ b }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h3>Notable Projects</h3>
+      <ul>
+        {% for p in form.achievements.split('||') if p.strip() %}
+          <li>{{ p.strip() }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h3>Education</h3>
+      <p>{{ form.education }}</p>
+    </section>
+  </main>
+</div>
