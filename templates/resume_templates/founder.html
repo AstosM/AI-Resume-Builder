@@ -1,0 +1,48 @@
+<div class="resume founder">
+  <header class="founder-head">
+    <div class="founder-left">
+      <h1>{{ form.name }}</h1>
+      <p class="muted">{{ form.title }}</p>
+    </div>
+    <div class="founder-right">
+      {% if profile_image %}
+        <img src="{{ profile_image }}" class="avatar-small">
+      {% endif %}
+      <p class="contact">{{ form.email }} • {{ form.linkedin }}</p>
+    </div>
+  </header>
+
+  <section class="founder-summary">
+    <h2>Founder Snapshot</h2>
+    <p>{{ ai.summary }}</p>
+  </section>
+
+  <section class="founder-highlights">
+    <h3>Startup Highlights</h3>
+    <ul>
+      {% for a in form.achievements.split('||') if a.strip() %}
+        <li>{{ a }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="founder-experience">
+    <h3>Experience & Product</h3>
+    {% for ex in ai.experiences %}
+      <div class="founder-job">
+        <strong>{{ ex.company }}</strong> — <em>{{ ex.role }}</em> <span class="dates">{{ ex.dates }}</span>
+        <ul>
+          {% for b in ex.bullets %}
+            <li>{{ b }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class="founder-education">
+    <h3>Education & Links</h3>
+    <p>{{ form.education }}</p>
+    <p class="small">Portfolio: {% if form.linkedin %}<a href="{{ form.linkedin }}">{{ form.linkedin }}</a>{% endif %}</p>
+  </section>
+</div>
