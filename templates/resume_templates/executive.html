@@ -1,0 +1,50 @@
+<div class="resume executive">
+  <header class="exec-head">
+    <div class="exec-left">
+      <h1 class="name">{{ form.name }}</h1>
+      <p class="title">{{ form.title }}</p>
+    </div>
+    <div class="exec-right">
+      <p class="contact small">{{ form.email }}{% if form.phone %} • {{ form.phone }}{% endif %}</p>
+      <p class="contact small">{{ form.location }}{% if form.linkedin %} • <a href="{{ form.linkedin }}">{{ form.linkedin }}</a>{% endif %}</p>
+    </div>
+  </header>
+
+  <section class="exec-summary">
+    <h2>Executive Summary</h2>
+    <p>{{ ai.summary }}</p>
+    <div class="kpis">
+      <div><strong>Top Skills</strong><br>{{ ai.skills_line }}</div>
+      {% if form.achievements %}
+      <div><strong>Key Achievements</strong><br>
+        <ul>
+        {% for a in form.achievements.split('||') %}
+          <li>{{ a }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="exec-experience">
+    <h3>Leadership & Experience</h3>
+    {% for ex in ai.experiences %}
+      <div class="exec-job">
+        <div class="head-row">
+          <strong>{{ ex.role }}</strong> <span class="muted">— {{ ex.company }}</span>
+          <span class="dates">{{ ex.dates }}</span>
+        </div>
+        <ul>
+          {% for b in ex.bullets %}
+            <li>{{ b }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </section>
+
+  <footer class="exec-footer">
+    <div class="education"><strong>Education</strong><br>{{ form.education }}</div>
+  </footer>
+</div>
