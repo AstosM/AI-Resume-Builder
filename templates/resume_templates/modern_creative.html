@@ -1,0 +1,53 @@
+<div class="resume modern-creative">
+  <div class="mc-top">
+    <div class="mc-left">
+      {% if profile_image %}
+        <img src="{{ profile_image }}" class="avatar">
+      {% endif %}
+    </div>
+    <div class="mc-right">
+      <h1 class="mc-name">{{ form.name }}</h1>
+      <p class="mc-role">{{ form.title }}</p>
+      <p class="mc-contact">{{ form.email }} • {{ form.phone }} • {{ form.location }}</p>
+      {% if form.linkedin %}<p><a href="{{ form.linkedin }}">{{ form.linkedin }}</a></p>{% endif %}
+    </div>
+  </div>
+
+  <div class="mc-body">
+    <section class="mc-section highlights">
+      <h2>Professional Summary</h2>
+      <p>{{ ai.summary }}</p>
+    </section>
+
+    <section class="mc-section">
+      <h2>Core Skills</h2>
+      <div class="skill-chips">
+        {% for s in ai.skills_line.split(',')[:12] %}
+          <span class="chip">{{ s.strip() }}</span>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="mc-section">
+      <h2>Experience</h2>
+      {% for ex in ai.experiences %}
+        <div class="mc-job">
+          <div class="mc-job-head">
+            <strong>{{ ex.role }}</strong> <span class="muted">— {{ ex.company }}</span>
+            <span class="dates">{{ ex.dates }}</span>
+          </div>
+          <ul>
+            {% for b in ex.bullets %}
+              <li>{{ b }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="mc-section">
+      <h2>Education</h2>
+      <p>{{ form.education }}</p>
+    </section>
+  </div>
+</div>
