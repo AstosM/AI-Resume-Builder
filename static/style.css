@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; background:#f5f7fb; color:#222; margin:0; padding:18px }
+main { max-width:980px; margin:auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06) }
+form input, form textarea, select { width:100%; padding:10px; margin:8px 0; box-sizing:border-box; border:1px solid #ddd; border-radius:6px }
+button { padding:10px 14px; background:#0b5cff; color:#fff; border:none; border-radius:6px; cursor:pointer }
+.resume-preview { border:1px solid #eee; padding:12px; background:#fff; margin:12px 0 }
+a { color:#0b5cff }
+small { color:#666 }
