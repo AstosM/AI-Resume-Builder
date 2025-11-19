@@ -7,3 +7,4 @@ docx2txt
 python-docx
 reportlab
 Pillow
+gunicorn
