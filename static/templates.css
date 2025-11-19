@@ -1,0 +1,41 @@
+/* templates.css - common styles optimized for print & screen */
+body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; color:#222; margin:0; padding:0 }
+.resume { background: #fff; color:#222; padding:18px; box-sizing:border-box; width:100%; max-width:900px; margin:auto }
+
+/* header basics */
+.rm-header, .tp-header, .mc-top, .exec-head, .founder-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px }
+.name { font-size:24px; margin:0 }
+.title { color:#666; margin-top:2px }
+.contact, .muted { color:#666; font-size:0.9em }
+
+/* columns */
+.two-col { display:flex; gap:20px }
+.left-col { flex:2 }
+.right-col { flex:1; background:#f9fafb; padding:12px; border-radius:6px }
+
+/* avatar / images */
+.avatar { width:110px; height:110px; object-fit:cover; border-radius:10px; }
+.avatar-small { width:80px; height:80px; object-fit:cover; border-radius:6px }
+
+/* creative chips */
+.modern-creative .chip { display:inline-block; padding:6px 10px; margin:4px; background:#f1f5f9; border-radius:20px; font-size:0.9em }
+
+/* tech profile */
+.tp-right { text-align:right; min-width:180px }
+
+/* executive layout */
+.exec-summary .kpis { display:flex; gap:18px; margin-top:8px }
+
+/* lists */
+ul { margin:6px 0 12px 16px; line-height:1.35 }
+h1,h2,h3,h4 { margin:6px 0 }
+
+/* print tweaks */
+@media print {
+  body { margin:0 }
+  .resume { box-shadow:none; border:none; padding:12px }
+  a { color: #222; text-decoration: none }
+}
+.small { font-size:0.85em; color:#666 }
+.dates { float:right; color:#777; font-size:0.85em }
+.job { margin-bottom:10px }
